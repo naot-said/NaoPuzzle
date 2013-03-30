@@ -23,23 +23,30 @@ public class PuzzleBoard {
 	public static final int EAST = 3; //移動方向を示す値
 	public static final int WEST = 4; //移動方向を示す値
 	private Bitmap image; // 表示イメージ
-	private int x,y; // ボードの表示位置
+	private float x,y; // ボードの表示位置
 	private int[] data; //表示場所データを管理する配列
 	public int place ; //現在の空きスペース位置
-	private static final int row = 6;//ピースの縦位置の個数
+	//private static final int row = 6;//ピースの縦位置の個数
+	private static final int row = 4;//ピースの縦位置の個数
 	private static final int col = 4;//ピースの横位置の個数
-	private static final int pW = 100; //ピースの横幅
-	private static final int pH = 100; //ピースの高さ
+	private float pW = 100f; //ピースの横幅
+	//private float pH = 100f; //ピースの高さ
+	private float pH = 150f; //ピースの高さ
 	public int count = 0; //動かした回数
 	
-	public PuzzleBoard(int x, int y, Bitmap image){
+	public PuzzleBoard(float x, float y, float dw, float dh, Bitmap image){
 		super();
 		this.x = x;
 		this.y = y;
-		this.image = image;
-		data = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,-1};
+		pW *= dw;
+		pH *= dh;
 		
-		place = 23;
+		this.image = image;
+		//data = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,-1};
+		data = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,-1};
+		
+		//place = 23; //ピースの数
+		place = 15; //ピースの数
 	}
 	
 	public void init(){
@@ -67,8 +74,8 @@ public class PuzzleBoard {
 				int r = (int)(data[n] / col);
 				if (data[n] != -1){
 					canvas.drawBitmap(image, 
-							new Rect(x + c * pW, y + r * pH, x + c * pW + pW, y + r * pH + pH),
-							new Rect(x + j * pW, y + i * pH, x + j * pW + pW, y + i * pH + pH),
+							new Rect((int)(x + c * pW), (int)(y + r * pH), (int)(x + c * pW + pW), (int)(y + r * pH + pH)),
+							new Rect((int)(x + j * pW), (int)(y + i * pH), (int)(x + j * pW + pW), (int)(y + i * pH + pH)),
 							new Paint());
 				}
 				n++;
