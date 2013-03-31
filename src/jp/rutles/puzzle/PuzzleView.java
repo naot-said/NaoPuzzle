@@ -23,6 +23,10 @@ import android.widget.Toast;
  */
 public class PuzzleView extends View {
 
+	int gameImage0 = R.drawable.sonic;  //画像イメージ0
+	int gameImage1 = R.drawable.image1;  //画像イメージ1
+	int gameImage2 = R.drawable.shadow;  //画像イメージ2
+	
 	private static final float XPERIA_W = 480; //検証機のサイズ
 	private static final float XPERIA_H = 854; //検証機のサイズ	
 	private float btn_x = 47; //ボタンの横位置
@@ -81,7 +85,7 @@ public class PuzzleView extends View {
 			btn2 = resources.getDrawable(R.drawable.start2);
 			btn2.setBounds((int)btn_x, (int)btn_y, (int)(btn_x + btn_w), (int)(btn_y + btn_h));
 			
-			Bitmap img = BitmapFactory.decodeResource(resources,R.drawable.image1);
+			Bitmap img = BitmapFactory.decodeResource(resources,gameImage2); //ゲーム画像の表示
 			board = new PuzzleBoard(board_x, board_y, dw, dh, img);
 		}
 

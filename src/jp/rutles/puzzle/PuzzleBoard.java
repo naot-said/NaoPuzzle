@@ -26,11 +26,9 @@ public class PuzzleBoard {
 	private float x,y; // ボードの表示位置
 	private int[] data; //表示場所データを管理する配列
 	public int place ; //現在の空きスペース位置
-	//private static final int row = 6;//ピースの縦位置の個数
 	private static final int row = 4;//ピースの縦位置の個数
 	private static final int col = 4;//ピースの横位置の個数
 	private float pW = 100f; //ピースの横幅
-	//private float pH = 100f; //ピースの高さ
 	private float pH = 150f; //ピースの高さ
 	public int count = 0; //動かした回数
 	
@@ -42,10 +40,8 @@ public class PuzzleBoard {
 		pH *= dh;
 		
 		this.image = image;
-		//data = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,-1};
 		data = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,-1};
 		
-		//place = 23; //ピースの数
 		place = 15; //ピースの数
 	}
 	
